@@ -1,11 +1,11 @@
-import { prisma } from './lib/prisma';
+
 import Fastify from 'fastify'
 import cors from '@fastify/cors'
 
 import { PoolsRoutes } from './routes/pool'
 import { AuthRoutes } from './routes/auth';
-import { GameRoutes } from './routes/game';
-import { GuessRoutes } from './routes/guess';
+import { gameRoutes } from './routes/game';
+import { guessRoutes } from './routes/guess';
 import { UserRoutes } from './routes/user';
 import jwt from '@fastify/jwt'
 
@@ -25,8 +25,8 @@ async function bootstrap()
 
         await fastify.register(PoolsRoutes)
         await fastify.register(AuthRoutes)
-        await fastify.register(GameRoutes)
-        await fastify.register(GuessRoutes)
+        await fastify.register(gameRoutes)
+        await fastify.register(guessRoutes)
         await fastify.register(UserRoutes)
        
       
